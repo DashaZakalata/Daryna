@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainServices.Repositories
+namespace ApplicationServices
 {
-    public interface IOrderRepository : IRepository<Order>
+    public interface IOrderBO
     {
-        IEnumerable<OrderItem> GetOrderItems();
+        void CreateOrder(int customerId, IEnumerable<OrderItem> orderItems);
     }
 }
