@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public class CustomerRepository : Repository<Customer>, ICustomerRepository
+    public class GoodRepository : Repository<Good>, IGoodRepository
     {
-        public CustomerRepository(ShopContext context) : base(context)
+        public GoodRepository(ShopContext context = null) : base(context)
         {
 
         }
-
     }
 }

@@ -35,7 +35,7 @@ namespace Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return dbSet.ToList();
+            return dbSet;
         }
 
         public void Remove(int id)

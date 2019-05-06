@@ -1,0 +1,29 @@
+﻿@using MVC_application.Helpers
+
+@model MVC_application.Models.GoodsModel
+
+@{
+                ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <table class="table table-striped">
+        <tr>
+            <th>@Html.DisplayNameFor(c => Model.Goods.First().Id)</th>
+            <th>@Html.DisplayNameFor(c => Model.Goods.First().Name)</th>
+            <th>@Html.DisplayNameFor(c => Model.Goods.First().Price)</th>
+        </tr>
+        @foreach (var good in Model.Goods)
+        {
+            <tr>
+                <td>@good.Id</td>
+                <td>@good.Name</td>
+                <td>@good.Price</td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.DisplayPagination(Model.PageInfo, (i) => Url.Action("Index", "Home", new { page = i }))
+</div>
+
