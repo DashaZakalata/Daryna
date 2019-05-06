@@ -10,5 +10,9 @@ namespace Repositories
 {
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
+        public IEnumerable<OrderItem> GetOrderItems()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
