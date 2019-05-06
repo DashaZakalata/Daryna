@@ -13,7 +13,8 @@ namespace TestingTool
         static void Main(string[] args)
         {
 
-
+            var context = new ShopContext();
+            var res = context.Customers.ToList();
         }
     }
 }

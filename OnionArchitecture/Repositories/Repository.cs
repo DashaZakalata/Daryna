@@ -19,7 +19,7 @@ namespace Repositories
         public Repository(ShopContext context = null)
         {
             this.context = context ?? new ShopContext();
-            dbSet = context.Set<T>();
+            dbSet = this.context.Set<T>();
         }
 
         public void Add(T entity)
