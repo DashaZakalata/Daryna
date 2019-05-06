@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoodBO.cs" />
+    <Compile Include="IGoodBO.cs" />
     <Compile Include="IOrderBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

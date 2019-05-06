@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using ApplicationServices;
+using DAL;
 using DomainCore;
 using DomainServices.Repositories;
 using MVC_application.Models;
@@ -13,13 +14,14 @@ namespace MVC_application.Controllers
 {
     public class HomeController : Controller
     {
-        IRepository<Good> repo;
+        IGoodBO goodBO;
         IEnumerable<Good> goods;
 
-        public HomeController()
+        public HomeController(IGoodBO goodBO)
         {
-            repo = new GoodRepository();
-            goods = repo.GetAll();
+            this.goodBO = goodBO;
+
+            goods = this.goodBO.GetGoods();
         }
         public ActionResult Index(int page = 1)
         {

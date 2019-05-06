@@ -12,7 +12,7 @@ namespace Repositories
 {
     public class GoodRepository : Repository<Good>, IGoodRepository
     {
-        public GoodRepository(ShopContext context = null) : base(context)
+        public GoodRepository(IShopContext context) : base(context)
         {
 
         }
