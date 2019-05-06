@@ -39,7 +39,9 @@ namespace Repositories
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var entity = Get(id);
+
+            dbSet.Remove(entity);
         }
     }
 }
