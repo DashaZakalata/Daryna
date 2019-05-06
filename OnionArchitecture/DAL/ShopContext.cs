@@ -11,7 +11,7 @@ namespace DAL
 {
     public class ShopContext: DbContext, IUnitOfWork
     {
-        public ShopContext() : base("ShopConnectionString")
+        public ShopContext() : base ("ShopConnectionString")
         {
         }
 
