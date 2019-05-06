@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\GoodBO_UnitTests.cs" />
     <Compile Include="CustomerRepository_UnitTests.cs" />
     <Compile Include="Generators\GeneratorFactory.cs" />
     <Compile Include="Generators\IObjectGenerator.cs" />

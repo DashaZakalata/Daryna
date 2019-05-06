@@ -17,7 +17,8 @@ namespace UnitTests
     public class CustomerRepository_UnitTests
     {
         private readonly Mock<ShopContext> mockDbContext = new Mock<ShopContext>();
-        private readonly MockSetup mockSetup = new MockSetup();
+        private readonly MockSetup mockSetup = new MockSetup();
+
         private CustomerRepository target;
         public CustomerRepository_UnitTests()
         {
