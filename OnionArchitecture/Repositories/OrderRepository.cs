@@ -1,4 +1,5 @@
-﻿using DomainCore;
+﻿using DAL;
+using DomainCore;
 using DomainServices.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,11 @@ namespace Repositories
 {
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
+        public OrderRepository(IShopContext context) : base(context)
+        {
+
+        }
+
         public IEnumerable<OrderItem> GetOrderItems()
         {
             throw new NotImplementedException();

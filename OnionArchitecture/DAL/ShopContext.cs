@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ShopContext: DbContext, IUnitOfWork
+    public class ShopContext: DbContext, IShopContext
     {
         public ShopContext() : base ("ShopConnectionString")
         {

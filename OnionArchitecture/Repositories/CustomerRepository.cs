@@ -12,7 +12,7 @@ namespace Repositories
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        public CustomerRepository(ShopContext context) : base(context)
+        public CustomerRepository(IShopContext context) : base(context)
         {
 
         }

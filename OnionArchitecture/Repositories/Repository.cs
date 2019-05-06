@@ -14,13 +14,13 @@ namespace Repositories
     public class Repository<T> : IRepository<T>
         where T : class, IEntity
     {
-        private ShopContext context;
+        private IShopContext context;
         private DbSet<T> dbSet;
 
-        public Repository(ShopContext context = null)
+        public Repository(IShopContext context)
         {
-            this.context = context ?? new ShopContext();
-            dbSet = this.context.Set<T>();
+            this.context = context;
+            dbSet = ((DbContext)this.context).Set<T>();
         }
 
         public void Add(T entity)
