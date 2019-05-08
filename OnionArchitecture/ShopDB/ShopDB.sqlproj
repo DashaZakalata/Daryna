@@ -59,14 +59,20 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Tables\dbo" />
+    <Folder Include="Deployment" />
+    <Folder Include="Deployment\Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\Goods.sql" />
     <Build Include="Tables\dbo\Customers.sql" />
     <Build Include="Tables\dbo\Orders.sql" />
     <Build Include="Tables\dbo\OrderItems.sql" />
+    <None Include="Deployment\Scripts\AddGoods.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ShopDB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Deployment\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

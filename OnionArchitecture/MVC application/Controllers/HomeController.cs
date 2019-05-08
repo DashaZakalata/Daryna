@@ -25,13 +25,21 @@ namespace MVC_application.Controllers
         }
         public ActionResult Index(int page = 1)
         {
-            var model = new GoodsModel()
+            try
             {
-                Goods = GetGoodsForPage(page),
-                PageInfo = GetInfo(page)
-            };
+                var model = new GoodsModel()
+                {
+                    Goods = GetGoodsForPage(page),
+                    PageInfo = GetInfo(page)
+                };
+                return View(model);
 
-            return View(model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("InternalServerError", "Errors");
+            }
+
         }
 
         private IEnumerable<Good> GetGoodsForPage(int page, int pageSize = 2)
