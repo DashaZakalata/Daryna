@@ -26,8 +26,7 @@ namespace MVC_application.Helpers
                 }
 
                 tag.MergeAttribute("href", link(i));
-                tag.MergeAttribute("style", "display:block");
-
+                tag.MergeAttribute("style", "display:inline-block");
                 result.Append(tag.ToString());
             }
             return MvcHtmlString.Create(result.ToString());

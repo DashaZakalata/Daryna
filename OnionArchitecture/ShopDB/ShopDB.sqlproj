@@ -68,6 +68,7 @@
     <Build Include="Tables\dbo\Orders.sql" />
     <Build Include="Tables\dbo\OrderItems.sql" />
     <None Include="Deployment\Scripts\AddGoods.sql" />
+    <None Include="Deployment\Scripts\AddCustomers.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ShopDB.publish.xml" />

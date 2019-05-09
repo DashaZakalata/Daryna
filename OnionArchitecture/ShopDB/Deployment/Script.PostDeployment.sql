@@ -11,3 +11,4 @@ Post-Deployment Script Template
 */
 
 :r .\Scripts\AddGoods.sql
+:r .\Scripts\AddCustomers.sql

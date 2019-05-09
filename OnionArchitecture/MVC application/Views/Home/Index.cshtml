@@ -23,7 +23,9 @@
         }
 
     </table>
-
-    @Html.DisplayPagination(Model.PageInfo, (i) => Url.Action("Index", "Home", new { page = i }))
+    <div class="text-center">
+        @Html.DisplayPagination(Model.PageInfo, (i) => Url.Action("Index", "Home", new { page = i }))
+    </div>
+    
 </div>
 
