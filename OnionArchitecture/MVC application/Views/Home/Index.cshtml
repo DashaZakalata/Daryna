@@ -20,7 +20,10 @@
             <td>@good.Id</td>
             <td>@good.Name</td>
             <td>@good.Price</td>
-            <td>@Html.ActionLink("View Details", "GoodDetails", new { id = good.Id }, new { @class = "btn btn-info btn-sm" })</td>
+            <td>
+                @Html.ActionLink("View Details", "GoodDetails", new { id = good.Id }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Edit", "GoodEdit", new { id = good.Id }, new { @class = "btn btn-info btn-sm" })
+            </td>
         </tr>
         }
     </table>

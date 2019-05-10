@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MVC_application.Controllers
 {
@@ -16,6 +17,7 @@ namespace MVC_application.Controllers
     {
         IGoodBO goodBO;
         IEnumerable<Good> goods;
+        ShopContext context = new ShopContext();
 
         public HomeController(IGoodBO goodBO)
         {
@@ -67,6 +69,28 @@ namespace MVC_application.Controllers
             else 
                 return View(goods.Single(c => c.Id == id));
 
+        }
+
+        public ActionResult GoodEdit(int id=default(int))
+        {
+            Good good = goods.Single(c => c.Id == id);
+            if (good==null)
+            {
+                return HttpNotFound();
+            }
+            return View(good);
+        }
+        [HttpPost]
+        public ActionResult GoodEdit(Good good)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(good).State = EntityState.Modified;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(good);
+            
         }
     }
 }

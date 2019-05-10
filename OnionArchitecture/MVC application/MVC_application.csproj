@@ -194,6 +194,7 @@
     <Content Include="Views\Errors\NotFound.cshtml" />
     <Content Include="Views\Errors\InternalServerError.cshtml" />
     <Content Include="Views\Home\GoodDetails.cshtml" />
+    <Content Include="Views\Home\GoodEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
