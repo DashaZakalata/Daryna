@@ -57,5 +57,16 @@ namespace MVC_application.Controllers
                 PagesCount = (int)Math.Ceiling((decimal)goods.Count<Good>() / pageSize)
             };
         }
+
+        public ActionResult GoodDetails(int id = default(int))
+        {
+            if (id == 0)
+            {
+                return RedirectToAction("Index","Home");
+            }
+            else 
+                return View(goods.Single(c => c.Id == id));
+
+        }
     }
 }
