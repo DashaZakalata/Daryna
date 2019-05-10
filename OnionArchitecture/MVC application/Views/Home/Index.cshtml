@@ -7,6 +7,19 @@
 }
 
 <div class="jumbotron">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <label>Name</label>
+        @Html.DropDownList("name", Model.Name)
+        <label>Price from</label>
+        @Html.TextBox("priceFrom")
+        <label>Price to</label>
+        @Html.TextBox("priceTo")
+        <label>Sort by</label>
+        @Html.DropDownList("sortType", Model.SortTypes)
+
+        <input type="submit" />
+    }
     <table class="table table-striped">
         <tr>
             <th>@Html.DisplayNameFor(c => Model.Goods.First().Id)</th>

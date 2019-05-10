@@ -16,31 +16,75 @@ namespace MVC_application.Controllers
     {
         IGoodBO goodBO;
         IEnumerable<Good> goods;
+        IEnumerable<string> name;
+        IEnumerable<string> sortTypes;
 
         public HomeController(IGoodBO goodBO)
         {
             this.goodBO = goodBO;
 
-            goods = this.goodBO.GetGoods();
+            goods = this.goodBO.GetGoods().ToList();
+
+            name = new string[] { "All" }.Union(goods.Select(c => c.Name.ToString()).Distinct());
+
+            sortTypes = new List<string>()
+            {
+                "From low to high",
+                "From high to low"
+            };
         }
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string name,
+            string sortType, decimal? priceFrom, decimal? priceTo, int page = 1)
         {
-            try
+            //IEnumerable<Phone> goods = phones.AsEnumerable();
+            //if (!string.IsNullOrEmpty(manufacturer) && manufacturer != "All")
+            //{
+            //    result = result.Where(c => c.Manufacturer == manufacturer);
+            //}
+            if (!string.IsNullOrEmpty(name) && name != "All")
             {
-                var model = new GoodsModel()
-                {
-                    Goods = GetGoodsForPage(page),
-                    PageInfo = GetInfo(page)
-                };
-                return View(model);
-
+                goods = goods.Where(c => c.Name == name);
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(sortType) || sortType == "From low to high")
             {
-                return RedirectToAction("InternalServerError", "Errors");
+                goods = goods.OrderBy(c => c.Price);
+            }
+            else
+            {
+                goods = goods.OrderByDescending(c => c.Price);
             }
 
+            if (priceFrom.HasValue && priceTo.HasValue && priceFrom < priceTo)
+            {
+                goods = goods.Where(c => c.Price >= priceFrom && c.Price <= priceTo);
+            }
+            var goodsModel = new GoodsModel()
+            {
+                Goods = GetGoodsForPage(page).ToList(),
+                Name = new SelectList(name),
+                SortTypes = new SelectList(sortTypes),
+                PageInfo = GetInfo(page)
+            };
+
+            return View(goodsModel);
         }
+        //public ActionResult Index(int page = 1)
+        //{
+        //    try
+        //    {
+        //        var model = new GoodsModel()
+        //        {
+        //            Goods = GetGoodsForPage(page),
+        //            PageInfo = GetInfo(page)
+        //        };
+        //        return View(model);
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return RedirectToAction("InternalServerError", "Errors");
+        //    }
+        //}
 
         private IEnumerable<Good> GetGoodsForPage(int page, int pageSize = 2)
         {
