@@ -16,7 +16,7 @@ namespace MVC_application.Controllers
     {
         IGoodBO goodBO;
         IEnumerable<Good> goods;
-        IEnumerable<string> name;
+        IEnumerable<string> names;
         IEnumerable<string> sortTypes;
 
         public HomeController(IGoodBO goodBO)
@@ -25,7 +25,7 @@ namespace MVC_application.Controllers
 
             goods = this.goodBO.GetGoods().ToList();
 
-            name = new string[] { "All" }.Union(goods.Select(c => c.Name.ToString()).Distinct());
+            names = new string[] { "All" }.Union(goods.Select(c => c.Name.ToString()).Distinct());
 
             sortTypes = new List<string>()
             {
@@ -61,7 +61,7 @@ namespace MVC_application.Controllers
             var goodsModel = new GoodsModel()
             {
                 Goods = GetGoodsForPage(page).ToList(),
-                Name = new SelectList(name),
+                Name = new SelectList(names),
                 SortTypes = new SelectList(sortTypes),
                 PageInfo = GetInfo(page)
             };
