@@ -11,6 +11,8 @@
         <tr>
             <th>@Html.DisplayNameFor(c => Model.Goods.First().Id)</th>
             <th>@Html.DisplayNameFor(c => Model.Goods.First().Name)</th>
+            <th>@Html.DisplayNameFor(c => Model.Goods.First().ImagePath)</th>
+            <th>@Html.DisplayNameFor(c => Model.Goods.First().Manufacturer)</th>
             <th>@Html.DisplayNameFor(c => Model.Goods.First().Price)</th>
             <th>@Html.Label("Available actions")</th>
         </tr>
@@ -19,6 +21,10 @@
         <tr>
             <td>@good.Id</td>
             <td>@good.Name</td>
+            <td style="text-align: left;">
+                <img style="height:50px" src="@Url.Content(@good.ImagePath)" alt ="Изображение для @good.Name"/>
+            </td>
+            <td>@good.Manufacturer</td>
             <td>@good.Price</td>
             <td>@Html.ActionLink("View Details", "GoodDetails", new { id = good.Id }, new { @class = "btn btn-info btn-sm" })</td>
         </tr>

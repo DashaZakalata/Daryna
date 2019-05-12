@@ -160,6 +160,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Huawei Mate P20.png" />
+    <Content Include="Content\Images\Huawei P smart.jpg" />
+    <Content Include="Content\Images\Huawei P30 Pro 8_256GB.jpg" />
+    <Content Include="Content\Images\Iphone 5s.jpeg" />
+    <Content Include="Content\Images\iPhone XS Max Dual Sim 512GB.jpg" />
+    <Content Include="Content\Images\Iphone Xs.jpeg" />
+    <Content Include="Content\Images\Samsung Galaxy S10 Plus 12GB_1TB.jpg" />
+    <Content Include="Content\Images\Samsung S10.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
